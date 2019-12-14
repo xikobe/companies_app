@@ -1,10 +1,11 @@
 import React from 'react';
+import Categories from '../categories';
 
 function App() {
   return (
-    <div>
-      Foo
-    </div>
+    <main>
+      <Categories />
+    </main>
   );
 }
 
