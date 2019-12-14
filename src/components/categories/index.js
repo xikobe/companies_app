@@ -1,9 +1,7 @@
 import React from 'react';
 
-const Categories = () => {
-  return (
-    <p>Foo</p>
-  );
-};
+const Categories = () => (
+  <p>Categories</p>
+);
 
 export default Categories;

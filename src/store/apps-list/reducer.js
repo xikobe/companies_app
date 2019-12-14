@@ -1,23 +1,37 @@
 import { combineReducers } from 'redux';
+import { FETCH_APPS_PENDING, FETCH_APPS_FULFILLED, FETCH_APPS_REJECTED } from './constants';
 
 const initialState = {
   data: [],
   isLoading: false,
+  error: null,
 };
 
-const data = (state = initialState.data, payload = {}) => {
-  switch (payload.type) {
-    case 'FOO':
-      return state;
+const data = (state = initialState.data, { type, payload } = {}) => {
+  switch (type) {
+    case FETCH_APPS_FULFILLED:
+      return payload;
     default:
       return state;
   }
-}
+};
 
-const isLoading = (state = initialState.isLoading, payload = {}) => {
-  switch (payload.type) {
-    case 'FOO':
+const error = (state = initialState.error, { type, payload } = {}) => {
+  switch (type) {
+    case FETCH_APPS_REJECTED:
+      return payload;
+    default:
       return state;
+  }
+};
+
+const isLoading = (state = initialState.isLoading, { type } = {}) => {
+  switch (type) {
+    case FETCH_APPS_PENDING:
+      return true;
+    case FETCH_APPS_FULFILLED:
+    case FETCH_APPS_REJECTED:
+      return false;
     default:
       return state;
   }
@@ -26,4 +40,5 @@ const isLoading = (state = initialState.isLoading, payload = {}) => {
 export default combineReducers({
   data,
   isLoading,
-})
+  error,
+});
