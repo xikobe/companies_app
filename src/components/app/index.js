@@ -4,6 +4,7 @@ import Categories from '../categories';
 import List from '../list';
 import Search from '../search';
 import { fetchApps } from '../../store/apps-list/actions';
+import { Wrapper } from './styles';
 
 function App() {
   const dispatch = useDispatch();
@@ -13,13 +14,13 @@ function App() {
   });
 
   return (
-    <main>
+    <Wrapper>
       <Categories />
       <div>
         <Search />
         <List />
       </div>
-    </main>
+    </Wrapper>
   );
 }
 

@@ -1,5 +1,11 @@
 import { css } from '@emotion/core';
 
+const breakpoints = [480, 768, 992, 1024, 1200];
+
+const mediaQ = breakpoints.map(
+  (bp) => `@media (min-width: ${bp}px)`,
+);
+
 export const theme = {
   colors: {
     white: '#FFFFFF',
@@ -7,12 +13,11 @@ export const theme = {
     gray: '#f4f7f6',
     grayDark: '#6c7680',
     teal: '#4bc3c9',
-  }
-}
+  },
+  mediaQ,
+};
 
 export const globalStyles = css`
-  @import url('https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,700i');
-
   body, html {
     font-family: 'Roboto', sans-serif;
     font-weight: 300;
@@ -37,6 +42,11 @@ export const globalStyles = css`
     border-style: solid;
   }
 
+  button {
+    font-family: inherit;
+    line-height: inherit;
+  }
+
   ul {
     list-style-type: none;
   }
@@ -53,6 +63,7 @@ export const globalStyles = css`
   h2 {
     font-size: 2.125rem;
     padding: 0 1rem;
+    color: ${theme.colors.black};
   }
 
   h3 {
