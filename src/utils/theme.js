@@ -57,6 +57,7 @@ export const globalStyles = css`
   }
 
   h1 {
+    font-size: 1.5rem;
     color: ${theme.colors.teal};
     font-weight: 400;
   }
