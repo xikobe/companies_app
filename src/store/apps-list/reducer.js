@@ -6,7 +6,7 @@ const initialState = {
   data: {},
   isLoading: false,
   error: null,
-  categories: [],
+  categories: {},
 };
 
 const data = (state = initialState.data, { type, payload } = {}) => {

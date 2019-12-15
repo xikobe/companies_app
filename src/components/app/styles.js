@@ -10,3 +10,8 @@ export const Wrapper = styled.main(({ theme }) => ({
     margin: '2rem auto',
   },
 }));
+
+export const ListWrapper = styled.main(() => ({
+  flex: 1,
+  padding: '15px',
+}));
