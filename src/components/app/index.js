@@ -5,6 +5,7 @@ import List from '../list';
 import Search from '../search';
 import { fetchApps } from '../../store/apps-list/actions';
 import { Wrapper, ListWrapper } from './styles';
+import CategoriesProvider from '../../contexts/categoriesContext';
 
 function App() {
   const dispatch = useDispatch();
@@ -15,11 +16,13 @@ function App() {
 
   return (
     <Wrapper>
-      <Categories />
-      <ListWrapper>
-        <Search />
-        <List />
-      </ListWrapper>
+      <CategoriesProvider>
+        <Categories />
+        <ListWrapper>
+          <Search />
+          <List />
+        </ListWrapper>
+      </CategoriesProvider>
     </Wrapper>
   );
 }

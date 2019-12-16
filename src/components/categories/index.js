@@ -7,8 +7,6 @@ import { selectAppsCategoriesList } from '../../store/apps-list/selectors';
 const Categories = () => {
   const categories = useSelector(selectAppsCategoriesList);
 
-  console.log(categories);
-
   return (
     <Wrapper>
       <h2>Categories</h2>

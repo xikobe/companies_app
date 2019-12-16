@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { useSelector } from 'react-redux';
 import { selectAppById } from '../../../store/apps-list/selectors';
 import {
@@ -33,6 +34,10 @@ const ListItem = ({ id }) => {
       </Subscriptions>
     </Wrapper>
   );
+};
+
+ListItem.propTypes = {
+  id: PropTypes.string,
 };
 
 export default ListItem;
