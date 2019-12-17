@@ -52,4 +52,10 @@ export const Subscription = styled.li`
   flex-flow: row wrap;
   align-items: baseline;
   margin-right: 1rem;
+  position: relative;
+
+  & sup {
+    position: absolute;
+    top: -.3rem;
+  }
 `;
