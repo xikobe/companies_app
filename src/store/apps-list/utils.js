@@ -2,23 +2,28 @@
  * Creates a normalized object with apps data (including search string)
  * and an array of ids.
  */
-export const parseAppsData = (appsList) => appsList.reduce((result, app) => ({
-  apps: {
-    ...result.apps,
-    [app.id]: {
-      ...app,
-      searchTerms: `
+export const parseAppsData = (appsList) => {
+  const parsedApps = appsList.reduce((result, app) => ({
+    apps: {
+      ...result.apps,
+      [app.id]: {
+        ...app,
+        searchTerms: `
         ${app.name},
         ${app.description},
         ${app.categories},
         ${app.subscriptions.map((sub) => sub.name)}
         `.toLowerCase(),
+        totalPrice: app.subscriptions.reduce((acc, sub) => acc + sub.price, 0),
+      },
     },
-  },
-  ids: [...result.ids, app.id],
-}), {
-  apps: {}, ids: [], categoryList: [], categoryApps: {},
-});
+    ids: [...result.ids, app.id],
+  }), { apps: {}, ids: [] });
+
+  parsedApps.ids.sort((a, b) => parsedApps.apps[a].totalPrice - parsedApps.apps[b].totalPrice);
+
+  return parsedApps;
+};
 
 /*
  * Parses categories into a normalized object of categories containing ids
