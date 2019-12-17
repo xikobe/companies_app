@@ -1,7 +1,7 @@
 import { combineReducers } from 'redux';
 import { SEARCH_CHANGE } from './constants';
 
-const initialState = {
+export const initialState = {
   value: '',
 };
 

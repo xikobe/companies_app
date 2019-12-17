@@ -1,0 +1,75 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`parseAppsData returns the correct apps object 1`] = `
+Object {
+  "470fedc5-489e-5acb-a200-c85adaa18356": Object {
+    "categories": Array [
+      "Dialer",
+    ],
+    "description": "Auto dialer that will help increase your connect rates and talk time.",
+    "id": "470fedc5-489e-5acb-a200-c85adaa18356",
+    "name": "Power Dialer",
+    "searchTerms": "
+        power dialer,
+        auto dialer that will help increase your connect rates and talk time.,
+        dialer,
+        trial,professional,premium
+        ",
+    "subscriptions": Array [
+      Object {
+        "name": "Trial",
+        "price": 0,
+      },
+      Object {
+        "name": "Professional",
+        "price": 4500,
+      },
+      Object {
+        "name": "Premium",
+        "price": 6000,
+      },
+    ],
+  },
+  "9b565b11-7311-5b5e-a699-97873dffb361": Object {
+    "categories": Array [
+      "Dialer",
+      "Reporting",
+      "Optimization",
+    ],
+    "description": "Calls reporting and analytics of your calls.",
+    "id": "9b565b11-7311-5b5e-a699-97873dffb361",
+    "name": "Voice Report",
+    "searchTerms": "
+        voice report,
+        calls reporting and analytics of your calls.,
+        dialer,reporting,optimization,
+        trial,professional
+        ",
+    "subscriptions": Array [
+      Object {
+        "name": "Trial",
+        "price": 0,
+      },
+      Object {
+        "name": "Professional",
+        "price": 3500,
+      },
+    ],
+  },
+}
+`;
+
+exports[`parseCategories returns the correct categories object 1`] = `
+Object {
+  "Dialer": Array [
+    "9b565b11-7311-5b5e-a699-97873dffb361",
+    "470fedc5-489e-5acb-a200-c85adaa18356",
+  ],
+  "Optimization": Array [
+    "9b565b11-7311-5b5e-a699-97873dffb361",
+  ],
+  "Reporting": Array [
+    "9b565b11-7311-5b5e-a699-97873dffb361",
+  ],
+}
+`;
