@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { useSelector } from 'react-redux';
+import Price from '../price';
 import { selectAppById } from '../../../store/apps-list/selectors';
 import {
   Wrapper, Info, Subscriptions, Category, Categories, Subscription,
@@ -25,7 +26,7 @@ const ListItem = ({ id }) => {
           app.subscriptions.map((sub) => (
             <Subscription key={`${sub.name}_${id}`}>
               <p>{sub.name}</p>
-              <h3>{ sub.price }</h3>
+              <Price price={sub.price} />
             </Subscription>
           ))
         }

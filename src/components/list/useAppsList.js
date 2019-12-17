@@ -1,19 +1,24 @@
 import { useState, useEffect } from 'react';
 import { useSelector } from 'react-redux';
-import { selectAppsIds, selectAppsByCategory, selectAppsObject } from '../../store/apps-list/selectors';
+import {
+  selectAppsIds, selectAppsByCategory, selectAppsObject, selectAppsListIsLoaded,
+} from '../../store/apps-list/selectors';
 import { selectSearchValue } from '../../store/search/selectors';
 import { useCategoriesContext } from '../../contexts/categoriesContext';
 
 const useAppsList = () => {
   const rawList = useSelector(selectAppsIds);
   const appsByCategory = useSelector(selectAppsByCategory);
+  const isAppListLoaded = useSelector(selectAppsListIsLoaded);
   const searchValue = useSelector(selectSearchValue);
   const normalizedApps = useSelector(selectAppsObject);
-  const [appsList, setAppsList] = useState();
+  const [appsList, setAppsList] = useState([]);
   const { activeCategories, clearCategories } = useCategoriesContext();
 
   useEffect(() => {
-    setAppsList(rawList);
+    if (rawList) {
+      setAppsList(rawList);
+    }
   }, [rawList]);
 
   useEffect(() => {
@@ -46,7 +51,7 @@ const useAppsList = () => {
     return () => setAppsList(rawList);
   }, [searchValue, activeCategories.length, clearCategories, normalizedApps, rawList]);
 
-  return appsList;
+  return [appsList, isAppListLoaded];
 };
 
 export default useAppsList;

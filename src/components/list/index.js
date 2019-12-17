@@ -4,10 +4,14 @@ import { Wrapper } from './styles';
 import useAppsList from './useAppsList';
 
 const List = () => {
-  const appsList = useAppsList();
+  const [appsList, isLoaded] = useAppsList();
 
-  if (!appsList) {
-    return <Wrapper>Loading...</Wrapper>;
+  if (!appsList.length) {
+    return (
+      <Wrapper>
+        { isLoaded ? 'No results...' : 'Loading...' }
+      </Wrapper>
+    );
   }
 
   return (

@@ -8,6 +8,7 @@ export const selectAppsObject = (state) => selectAppsListData(state).apps;
 export const selectAppById = (state, id) => selectAppsObject(state)[id];
 
 export const selectAppsListIsLoading = (state) => get(selectAppsList(state), 'isLoading');
+export const selectAppsListIsLoaded = (state) => get(selectAppsList(state), 'isLoaded');
 
 export const selectAppsListIsError = (state) => get(selectAppsList(state), 'error');
 

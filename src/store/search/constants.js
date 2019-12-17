@@ -1,1 +1,2 @@
 export const SEARCH_CHANGE = 'SEARCH_CHANGE';
+export const RESET_SEARCH = 'RESET_SEARCH';

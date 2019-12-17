@@ -3,8 +3,12 @@ import { FETCH_APPS_PENDING, FETCH_APPS_FULFILLED, FETCH_APPS_REJECTED } from '.
 import { parseCategories, parseAppsData } from './utils';
 
 const initialState = {
-  data: {},
+  data: {
+    apps: {},
+    ids: [],
+  },
   isLoading: false,
+  isLoaded: false,
   error: null,
   categories: {},
 };
@@ -39,6 +43,18 @@ const isLoading = (state = initialState.isLoading, { type } = {}) => {
   }
 };
 
+const isLoaded = (state = initialState.isLoaded, { type } = {}) => {
+  switch (type) {
+    case FETCH_APPS_PENDING:
+      return false;
+    case FETCH_APPS_FULFILLED:
+    case FETCH_APPS_REJECTED:
+      return true;
+    default:
+      return state;
+  }
+};
+
 export const categories = (state = initialState.categories, { type, payload }) => {
   switch (type) {
     case FETCH_APPS_FULFILLED:
@@ -51,6 +67,7 @@ export const categories = (state = initialState.categories, { type, payload }) =
 export default combineReducers({
   data,
   isLoading,
+  isLoaded,
   error,
   categories,
 });
