@@ -1,11 +1,10 @@
 import React from 'react';
-import { useSelector } from 'react-redux';
 import ListItem from './list-item';
 import { Wrapper } from './styles';
-import { selectAppsIds } from '../../store/apps-list/selectors';
+import useAppsList from './useAppsList';
 
 const List = () => {
-  const appsList = useSelector(selectAppsIds);
+  const appsList = useAppsList();
 
   if (!appsList) {
     return <Wrapper>Loading...</Wrapper>;

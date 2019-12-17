@@ -13,3 +13,4 @@ export const selectAppsListIsError = (state) => get(selectAppsList(state), 'erro
 
 export const selectAppsCategories = (state) => get(selectAppsList(state), 'categories');
 export const selectAppsCategoriesList = (state) => get(selectAppsCategories(state), 'list', []);
+export const selectAppsByCategory = (state) => get(selectAppsCategories(state), 'appsByCategory', []);

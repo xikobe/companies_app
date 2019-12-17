@@ -9,8 +9,6 @@ import {
 const ListItem = ({ id }) => {
   const app = useSelector((state) => selectAppById(state, id));
 
-  console.log(app);
-
   return (
     <Wrapper>
       <Info>
