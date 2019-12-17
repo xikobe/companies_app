@@ -17,13 +17,13 @@ const ListItem = ({ id }) => {
           <p>{app.description}</p>
         </div>
         <Categories>
-          { app.categories.map((category) => <Category>{ category }</Category>) }
+          { app.categories.map((category) => <Category key={`${category}_${id}`}>{ category }</Category>) }
         </Categories>
       </Info>
       <Subscriptions>
         {
           app.subscriptions.map((sub) => (
-            <Subscription>
+            <Subscription key={`${sub.name}_${id}`}>
               <p>{sub.name}</p>
               <h3>{ sub.price }</h3>
             </Subscription>

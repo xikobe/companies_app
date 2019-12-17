@@ -12,7 +12,7 @@ export const parseAppsData = (appsList) => appsList.reduce((result, app) => ({
         ${app.description},
         ${app.categories},
         ${app.subscriptions.map((sub) => sub.name)}
-        `,
+        `.toLowerCase(),
     },
   },
   ids: [...result.ids, app.id],

@@ -12,7 +12,7 @@ const Categories = () => {
       <h2>Categories</h2>
       <ul>
         {
-          categories.map((category) => <CategoryItem name={category} />)
+          categories.map((category) => <CategoryItem key={category} name={category} />)
         }
       </ul>
     </Wrapper>

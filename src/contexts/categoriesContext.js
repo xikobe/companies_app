@@ -20,8 +20,13 @@ const CategoriesProvider = ({ children }) => {
 
   const isCategoryActive = useCallback((category) => activeCategories.includes(category), [activeCategories]);
 
+  const clearCategories = () => setActiveCategories([]);
+
   return (
-    <CategoriesContext.Provider value={{ toggleActiveCategory, isCategoryActive, activeCategories }}>
+    <CategoriesContext.Provider value={{
+      toggleActiveCategory, isCategoryActive, activeCategories, clearCategories,
+    }}
+    >
       { children }
     </CategoriesContext.Provider>
   );
