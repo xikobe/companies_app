@@ -6,7 +6,7 @@
     "@emotion/core": "^10.0.22",
     "@emotion/styled": "^10.0.23",
     "@testing-library/jest-dom": "^4.2.4",
-    "@testing-library/react": "^9.3.2",
+    "@testing-library/react": "^9.4.0",
     "@testing-library/user-event": "^7.1.2",
     "axios": "^0.19.0",
     "emotion-theming": "^10.0.19",
@@ -42,9 +42,15 @@
     ]
   },
   "devDependencies": {
+    "@testing-library/react-hooks": "^3.2.1",
+    "axios-mock-adapter": "^1.17.0",
+    "enzyme": "^3.10.0",
+    "enzyme-adapter-react-16": "^1.15.1",
     "eslint-config-airbnb": "^18.0.1",
     "eslint-plugin-import": "^2.19.1",
     "eslint-plugin-jsx-a11y": "^6.2.3",
-    "eslint-plugin-react": "^7.17.0"
+    "eslint-plugin-react": "^7.17.0",
+    "jest-enzyme": "^7.1.2",
+    "redux-mock-store": "^1.5.4"
   }
 }

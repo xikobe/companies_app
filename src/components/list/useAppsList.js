@@ -43,7 +43,9 @@ const useAppsList = () => {
         clearCategories();
       }
 
-      const newAppList = rawList.filter((id) => normalizedApps[id].searchTerms.includes(searchValue.toLowerCase()));
+      const newAppList = rawList.filter(
+        (id) => normalizedApps[id].searchTerms.includes(searchValue.toLowerCase()),
+      );
 
       setAppsList(newAppList);
     }
