@@ -1,11 +1,14 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, Suspense } from 'react';
 import { useDispatch } from 'react-redux';
-import Categories from '../categories';
-import List from '../list';
-import Search from '../search';
 import { fetchApps } from '../../store/apps-list/actions';
 import { Wrapper, ListWrapper } from './styles';
 import CategoriesProvider from '../../contexts/categoriesContext';
+
+/* eslint-disable */
+const LazyCategories = React.lazy(() => import(/* webpackChunkName: "categories" */'../categories'));
+const LazySearch = React.lazy(() => import(/* webpackChunkName: "search" */'../search'));
+const LazyAppsList = React.lazy(() => import(/* webpackChunkName: "list" */'../list'));
+/* eslint-enable */
 
 function App() {
   const dispatch = useDispatch();
@@ -17,10 +20,16 @@ function App() {
   return (
     <Wrapper>
       <CategoriesProvider>
-        <Categories />
+        <Suspense fallback={null}>
+          <LazyCategories />
+        </Suspense>
         <ListWrapper>
-          <Search />
-          <List />
+          <Suspense fallback={null}>
+            <LazySearch />
+          </Suspense>
+          <Suspense fallback={null}>
+            <LazyAppsList />
+          </Suspense>
         </ListWrapper>
       </CategoriesProvider>
     </Wrapper>

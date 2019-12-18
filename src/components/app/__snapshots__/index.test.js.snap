@@ -3,10 +3,22 @@
 exports[`App renders correctly 1`] = `
 <Styled(main)>
   <CategoriesProvider>
-    <Categories />
+    <Suspense
+      fallback={null}
+    >
+      <lazy />
+    </Suspense>
     <Styled(main)>
-      <Search />
-      <List />
+      <Suspense
+        fallback={null}
+      >
+        <lazy />
+      </Suspense>
+      <Suspense
+        fallback={null}
+      >
+        <lazy />
+      </Suspense>
     </Styled(main)>
   </CategoriesProvider>
 </Styled(main)>
