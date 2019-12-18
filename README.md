@@ -1,68 +1,42 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# app_listing challenge
 
-## Available Scripts
+## Run the project
 
-In the project directory, you can run:
+- Extract zip file
+- Install dependencies
+  ```
+  yarn install
+  ``` 
+- Run project
+  ```
+  npm run start
+  ```
 
-### `yarn start`
+## Running tests
+```
+npm run test
+```
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Project stack
+- Bootstraped with create-react-app
+- Redux for app state management
+- Emotion for css-in-js
+- Jest, enzyme and react-testing-library/react-hooks for unit testing
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+## Remarks on the project
 
-### `yarn test`
+There are some decisions I took that I'd like to add a few remarks on:
+- React Lazy - this allows us to lazy load components and do code splitting. In this app, as all components are visible from the start, there is no great benefit. But is still a good approach I decided to include.
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- Parsing data at reducer level - At first I was thinking of using `createSelector` from reselect but this would mean that even though the selectors would be memoized and not cause re-renders on the components, they'd still run. And this was still costly for example while typing in the search field. By parsing data at reducer level, this only happens once (when data is fetched).
 
-### `yarn build`
+- Mixing up context api and redux - This was a bit of over engineering, I could have gone with one or the other. But still decided it's nice to see how the different approaches can work together and how I could implement them.
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- Not doing all the tests - This is mostly because of time constrains. I still did tests for all different flows in the app (redux code including async actions, component interaction, component render flows, hooks and context provider). The tests meaning wouldn't show anything different.
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `yarn eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `yarn build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+## Final thoughts
+I feel this was a good exercise that allows us to work on most types of challenges of building a web app. From state management, working with objects and arrays, drilling props, UI. Looking back, these are the things I'd do to improve it:
+- Add a clear all categories button
+- Have search and categories working together - have the hability to search for apps on the selected categories and vice versa
+- Do all the tests
+- Replace categories context with redux state and actions.
